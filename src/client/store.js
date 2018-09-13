@@ -1,8 +1,8 @@
-import {createStore, applyMiddleware, compose} from 'redux';
 import window from 'global/window';
-import {taskMiddleware} from 'react-palm';
-import {routerMiddleware} from 'react-router-redux';
-import {hashHistory} from 'react-router';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { taskMiddleware } from 'react-palm/tasks';
+import { routerMiddleware } from 'react-router-redux';
+import { hashHistory } from 'react-router';
 import reducers from './reducers';
 
 export const middlewares = [
