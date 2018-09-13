@@ -1,32 +1,39 @@
-h1 {
-  color: black;
-}
-
-body {
-  text-align: center;
-  margin: auto;
-}
-
-/* .container {
-  border-radius: "5px";
-  border: 0;
-  background: "#344351";
+.container {
   z-index: 9;
-  position: "absolute";
-  display: "block";
-  bottom: "0px";
-  left: "5px";
-  position: "absolute";
-  display: "block";
-  width: "219px";
-  height: "27px"
+  position: absolute;
+  display: block;
+  top: 10px;
+  right: 5px;
+  width: 219px;
+  height: 27px
 }
 
 .typemark {
-  bottom: "4px";
-  position: "absolute";
+  bottom: 4;
+  position: absolute;
   z-index: 10;
-  width: "200px";
-  cursor: "pointer";
-  left: "9px";
-} */
+  width: 200px;
+  cursor: pointer;
+  left: 9px;
+}
+
+a.mapboxgl-ctrl-logo {
+  display: none
+}
+
+.map-control {
+  display: none
+}
+
+.mapboxgl-ctrl-bottom-right {
+  display: none
+}
+
+.export {
+  z-index: 100;
+  background: white;
+  color: black;
+  display: block;
+  position: absolute;
+  background-color: white;
+}
