@@ -2,19 +2,24 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const outputDirectory = 'dist';
-
 module.exports = {
-  entry: './src/client/index.js',
+  context: path.join(__dirname, "src", "client"),
+  entry: {
+    app: './index.js'
+  },
   output: {
-    path: path.join(__dirname, outputDirectory),
+    path: path.join(__dirname, "dist"),
     filename: 'bundle.js'
+  },
+  node: {
+    fs: "empty"
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
+        include: path.join(__dirname, 'src', "client"),
         use: {
           loader: 'babel-loader'
         }
@@ -37,10 +42,10 @@ module.exports = {
     }
   },
   plugins: [
-    new CleanWebpackPlugin([outputDirectory]),
+    // new CleanWebpackPlugin(["dist"]),
     new HtmlWebpackPlugin({
-      template: './public/index.html',
-      favicon: './public/favicon.png'
+      template: '../../public/index.html',
+      favicon: '../../public/favicon.png'
     })
   ]
 };
