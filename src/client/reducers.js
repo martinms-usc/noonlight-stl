@@ -2,26 +2,45 @@ import {combineReducers} from 'redux';
 import {handleActions} from 'redux-actions';
 import {routerReducer} from 'react-router-redux';
 import keplerGlReducer from 'kepler.gl/reducers';
+import Processors from 'kepler.gl/processors';
+import { loadConfig } from './actions';
+
+import noonlightUsage from '../data/noonlightTrips.csv';
+import hexConfig from '../data/config';
+import heatmapConfig from '../data/heatmap_config';
+
+const data = Processors.processCsvData(noonlightUsage);
 
 const initialAppState = {
   appName: 'noonlight_vis',
-  loaded: false,
+  dataset: {
+    data,
+    info: {
+      id: 'my_data',
+      label: 'Noonlight Trips'
+    }
+  },
+  config: {
+    selected: 'hexbin',
+    data: {},
+    payloads: {
+      hexbin: hexConfig,
+      heatmap: heatmapConfig
+    }
+  }
 };
 
 const reducers = combineReducers({
   keplerGl: keplerGlReducer,
   app: handleActions({
-    // TOGGLE_METRO: (state, action) => {
-    //   let { metroVisible } = state;
-    //   let newState = Object.assign({}, state, { metroVisible: !metroVisible });
-      
-    //   return newState;
-    // },
-    // TOGGLE_FILTER: (state, action) => {
-    //   let { metroFiltered } = state;
-    //   let newState = Object.assign({}, state, { metroFiltered: !metroFiltered });
-
-    //   return newState;
+    [loadConfig](state, action) {
+      const newState = Object.assign({}, state);
+      newState.config.selected = action.payload;
+      newState.config.data = state.config.payloads[action.payload];
+      return newState;
+    },
+    // [downloadJSONFile](state) {
+    //   return state;
     // }
   }, initialAppState),
   routing: routerReducer
