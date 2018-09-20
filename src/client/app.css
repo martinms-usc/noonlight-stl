@@ -17,6 +17,25 @@
   left: 9px;
 }
 
+.label {
+  font-family: 'Helvetica Neue',Helvetica,sans-serif;
+  font-weight: 400;
+  font-size: 0.875em;
+  line-height: 1.71429;
+  position: absolute;
+  bottom: 5px;
+  z-index: 15;
+  color: white;
+}
+
+.heat {
+  left: 20px
+}
+
+.hex {
+  left: 25px;
+}
+
 a.mapboxgl-ctrl-logo {
   display: none
 }
@@ -36,4 +55,36 @@ a.mapboxgl-ctrl-logo {
   display: block;
   position: absolute;
   background-color: white;
+}
+
+.config {
+  z-index: 100;
+  top: 40px;
+  position: absolute;
+  background: white;
+  color: black;
+  display: block;
+  position: absolute;
+  background-color: white;
+}
+
+.config-select {
+  width: 100px;
+  height: 100px;
+  border-radius: 15%;
+  border-color: white;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.config-container {
+  align-items: center;
+  z-index: 9;
+  position: absolute;
+  display: block;
+  bottom: 20px;
+  left: 20px;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
 }
