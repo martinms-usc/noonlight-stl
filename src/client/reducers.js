@@ -38,10 +38,7 @@ const reducers = combineReducers({
       newState.config.selected = action.payload;
       newState.config.data = state.config.payloads[action.payload];
       return newState;
-    },
-    // [downloadJSONFile](state) {
-    //   return state;
-    // }
+    }
   }, initialAppState),
   routing: routerReducer
 });
