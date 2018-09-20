@@ -11,7 +11,10 @@
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Michael Martin",
-  "license": "ISC",
+  "license": "MIT",
+  "engines": {
+    "node": "9.5.0"
+  },
   "dependencies": {
     "dotenv-webpack": "^1.5.7",
     "express": "^4.16.3",

@@ -6,8 +6,8 @@ import Processors from 'kepler.gl/processors';
 import { loadConfig } from './actions';
 
 import noonlightUsage from '../data/noonlightTrips.csv';
-import hexConfig from '../data/hexbin-config';
-import heatmapConfig from '../data/heatmap-config';
+import hexConfig from '../data/hexbin-config.json';
+import heatmapConfig from '../data/heatmap-config.json';
 
 const data = Processors.processCsvData(noonlightUsage);
 

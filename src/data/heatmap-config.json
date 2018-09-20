@@ -1,0 +1,102 @@
+{
+  "version": "v1",
+  "config": {
+    "visState": {
+      "filters": [
+        {
+          "dataId": "my_data",
+          "id": "248xeuwra",
+          "name": "MetroStop Contains",
+          "type": "select",
+          "value": true,
+          "enlarged": false,
+          "plotType": "histogram",
+          "yAxis": null
+        }
+      ],
+      "layers": [
+        {
+          "id": "f0fkrw",
+          "type": "heatmap",
+          "config": {
+            "dataId": "my_data",
+            "label": "Noonlight Trips",
+            "color": [
+              18,
+              147,
+              154
+            ],
+            "columns": {
+              "lat": "Latitude",
+              "lng": "Longitude"
+            },
+            "isVisible": true,
+            "visConfig": {
+              "opacity": 0.45,
+              "colorRange": {
+                "name": "ColorBrewer RdBu-6",
+                "type": "diverging",
+                "category": "ColorBrewer",
+                "colors": [
+                  "#2166ac",
+                  "#67a9cf",
+                  "#d1e5f0",
+                  "#fddbc7",
+                  "#ef8a62",
+                  "#b2182b"
+                ],
+                "reversed": true
+              },
+              "radius": 8
+            }
+          },
+          "visualChannels": {
+            "weightField": null,
+            "weightScale": "linear"
+          }
+        }
+      ],
+      "interactionConfig": {
+        "tooltip": {
+          "fieldsToShow": {
+            "my_data": [
+              "Hour of Day",
+              "Month",
+              "Time",
+              "Is Alarm"
+            ]
+          },
+          "enabled": true
+        },
+        "brush": {
+          "size": 0.5,
+          "enabled": false
+        }
+      },
+      "layerBlending": "additive",
+      "splitMaps": []
+    },
+    "mapState": {
+      "bearing": -25.21875,
+      "dragRotate": true,
+      "latitude": 38.61891407616525,
+      "longitude": -90.26513022140793,
+      "pitch": 40.47225769196967,
+      "zoom": 11.153605760688345,
+      "isSplit": false
+    },
+    "mapStyle": {
+      "styleType": "dark",
+      "topLayerGroups": {},
+      "visibleLayerGroups": {
+        "label": true,
+        "road": true,
+        "border": false,
+        "building": true,
+        "water": true,
+        "land": true
+      },
+      "mapStyles": {}
+    }
+  }
+}
