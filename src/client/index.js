@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import document from 'global/document';
 import store from './store';
-import App from './app';
+import * as App from './App';
 
 // to enable react-router and view routing
 // import { hashHistory, Router, Route } from 'react-router';
