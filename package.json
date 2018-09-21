@@ -13,6 +13,9 @@
   },
   "author": "Michael Martin",
   "license": "ISC",
+  "engines": {
+    "node": "9.5.0"
+  },
   "dependencies": {
     "dotenv-webpack": "^1.5.7",
     "express": "^4.16.3",
