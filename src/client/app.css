@@ -49,23 +49,17 @@ a.mapboxgl-ctrl-logo {
 }
 
 .export {
-  z-index: 100;
-  background: white;
-  color: black;
+  z-index: 9;
+  color: white;
   display: block;
   position: absolute;
-  background-color: white;
-}
-
-.config {
-  z-index: 100;
-  top: 40px;
-  position: absolute;
-  background: white;
-  color: black;
-  display: block;
-  position: absolute;
-  background-color: white;
+  background-color: black;
+  height: 25px;
+  width: 100px;
+  border-radius: 8px;
+  left: 20px;
+  bottom: 135px;
+  cursor: pointer;
 }
 
 .config-select {
