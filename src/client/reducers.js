@@ -21,7 +21,7 @@ const initialAppState = {
     }
   },
   config: {
-    selected: 'hexbin',
+    selected: null,
     data: {},
     payloads: {
       hexbin: hexConfig,
