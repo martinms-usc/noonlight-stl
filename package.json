@@ -12,7 +12,7 @@
     "postinstall": "npm run build"
   },
   "author": "Michael Martin",
-  "license": "ISC",
+  "license": "MIT",
   "engines": {
     "node": "9.5.0"
   },
