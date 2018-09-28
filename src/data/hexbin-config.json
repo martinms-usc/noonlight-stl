@@ -51,7 +51,7 @@
                 0,
                 100
               ],
-              "elevationScale": 30,
+              "elevationScale": 33,
               "hi-precision": false,
               "colorAggregation": "average",
               "sizeAggregation": "average",
@@ -87,12 +87,12 @@
       "splitMaps": []
     },
     "mapState": {
-      "bearing": -45.046875,
+      "bearing": -37.734375,
       "dragRotate": true,
-      "latitude": 38.62661948144759,
-      "longitude": -90.25880057904553,
-      "pitch": 58.00374848353567,
-      "zoom": 12.03232113357402,
+      "latitude": 38.63364591136604,
+      "longitude": -90.25351001405748,
+      "pitch": 58.41624954704422,
+      "zoom": 12.074535707528177,
       "isSplit": false
     },
     "mapStyle": {
