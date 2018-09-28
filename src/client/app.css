@@ -26,14 +26,16 @@
   bottom: 5px;
   z-index: 15;
   color: white;
+  font-size: small;
+  font-weight: 250
 }
 
 .heat {
-  left: 20px
+  left: 24px
 }
 
 .hex {
-  left: 25px;
+  left: 27px;
 }
 
 a.mapboxgl-ctrl-logo {
@@ -57,16 +59,17 @@ a.mapboxgl-ctrl-logo {
   height: 25px;
   width: 100px;
   border-radius: 8px;
+  border-color: black;
   left: 20px;
   bottom: 135px;
   cursor: pointer;
+  opacity: 0.7;
 }
 
 .config-select {
   width: 100px;
   height: 100px;
   border-radius: 15%;
-  border-color: white;
   border-style: solid;
   border-width: 1px;
 }
@@ -81,4 +84,5 @@ a.mapboxgl-ctrl-logo {
   width: 100px;
   height: 100px;
   cursor: pointer;
+  opacity: 0.7;
 }

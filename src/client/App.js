@@ -89,7 +89,7 @@ class App extends Component {
             />
           )}
         </AutoSizer>
-        <button className='export' onClick={this.exportMapConfig}>Export</button>
+        <button className='export label' onClick={this.exportMapConfig}>Export</button>
         {
           this.props.config.selected === 'hexbin' ? 
           (<Heatmap selectHeatmap={this.selectHeatmap}/>) :
