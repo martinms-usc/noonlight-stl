@@ -26,7 +26,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // console.log(this.props);
     this.props.dispatch(
       toggleSidePanel()
     );
@@ -80,7 +79,7 @@ class App extends Component {
           <img src={typemark} className='typemark' />
         </div>
         
-        <AutoSizer>  
+        <AutoSizer>
           {({height, width}) => (
             <KeplerGl
               mapboxApiAccessToken={process.env.MAPBOX_TOKEN}
@@ -101,6 +100,16 @@ class App extends Component {
   }
 }
 
+App.propTypes = {
+  visitNoonlight: PropTypes.func,
+  exportMapConfig: PropTypes.func,
+  selectHexbin: PropTypes.func,
+  selectHeatmap: PropTypes.func,
+  keplerGl: PropTypes.object,
+  dataset: PropTypes.object,
+  config: PropTypes.object
+};
+
 function Heatmap(props) {
   return (
     <div onClick={props.selectHeatmap} className='config-container'>
@@ -118,16 +127,6 @@ function Hexbin(props) {
     </div>
   );
 }
-
-App.propTypes = {
-  visitNoonlight: PropTypes.func,
-  exportMapConfig: PropTypes.func,
-  selectHexbin: PropTypes.func,
-  selectHeatmap: PropTypes.func,
-  keplerGl: PropTypes.object,
-  dataset: PropTypes.object,
-  config: PropTypes.object
-};
 
 const mapStateToProps = state => ({
   keplerGl: state.keplerGl,
