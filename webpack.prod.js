@@ -11,7 +11,7 @@ module.exports = merge(common, {
     new HtmlWebpackPlugin({
       template: "./public/index.html",
       favicon: "./public/favicon.png"
-    })
+    }),
     new webpack.DefinePlugin({
       'process.env': {
          MAPBOX_TOKEN: process.env.MAPBOX_TOKEN
