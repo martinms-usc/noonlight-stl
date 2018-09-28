@@ -27,7 +27,7 @@
   z-index: 15;
   color: white;
   font-size: small;
-  font-weight: 250
+  font-weight: 300
 }
 
 .heat {
@@ -55,7 +55,7 @@ a.mapboxgl-ctrl-logo {
   color: white;
   display: block;
   position: absolute;
-  background-color: black;
+  background-color: #304E6D;
   height: 25px;
   width: 100px;
   border-radius: 8px;
