@@ -1,6 +1,6 @@
-import {combineReducers} from 'redux';
-import {handleActions} from 'redux-actions';
-import {routerReducer} from 'react-router-redux';
+import { combineReducers } from 'redux';
+import { handleActions } from 'redux-actions';
+import { routerReducer } from 'react-router-redux';
 import keplerGlReducer from 'kepler.gl/reducers';
 import Processors from 'kepler.gl/processors';
 import { loadConfig } from './actions';
