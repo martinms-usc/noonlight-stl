@@ -26,42 +26,45 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(
+    const { dispatch } = this.props;
+    dispatch(
       toggleSidePanel()
     );
     this.selectConfig('hexbin');
   }
 
-  selectConfig(type) {
-    this.props.dispatch(
-      this.props.loadConfig(type)
-    );
-    this.addData();
+  getMapConfig() {
+    const { keplerGl } = this.props;
+    const { map } = keplerGl;
+    return KeplerGlSchema.getConfigToSave(map);
+  }
+
+  visitNoonlight = () => {
+    const win = window.open('https://noonlight.com/', '_blank');
+    win.focus();
   }
 
   addData() {
-    this.props.dispatch(
+    const { dispatch, config, dataset } = this.props;
+    dispatch(
       addDataToMap({
-        config: this.props.config.data,
-        datasets: this.props.dataset 
+        config: config.data,
+        datasets: dataset
       })
     );
   }
 
-  getMapConfig() {
-    const { keplerGl}  = this.props;
-    const { map } = keplerGl;
-    return KeplerGlSchema.getConfigToSave(map);
+  selectConfig(type) {
+    const { dispatch } = this.props;
+    dispatch(
+      loadConfig(type)
+    );
+    this.addData();
   }
 
   exportMapConfig() {
     const mapConfig = this.getMapConfig();
     downloadJsonFile(mapConfig, 'kepler.gl.json');
-  }
-
-  visitNoonlight() {
-    let win = window.open('https://noonlight.com/', '_blank');
-    win.focus();
   }
 
   selectHeatmap() {
@@ -73,14 +76,16 @@ class App extends Component {
   }
 
   render() {
+    const { config } = this.props;
+
     return (
-      <div style={{position: 'absolute', width: '100%', height: '100%'}}>
-        <div onClick={this.visitNoonlight} className='container'>
-          <img src={typemark} className='typemark' />
+      <div style={{ position: 'absolute', width: '100%', height: '100%' }}>
+        <div onClick={this.visitNoonlight} className="container">
+          <img src={typemark} alt="typemark" className="typemark" />
         </div>
-        
+
         <AutoSizer>
-          {({height, width}) => (
+          {({ height, width }) => (
             <KeplerGl
               mapboxApiAccessToken={process.env.MAPBOX_TOKEN}
               id="map"
@@ -89,11 +94,11 @@ class App extends Component {
             />
           )}
         </AutoSizer>
-        <button className='export label' onClick={this.exportMapConfig}>Export</button>
+        <button type="button" className="export label" onClick={this.exportMapConfig}>Export</button>
         {
-          this.props.config.selected === 'hexbin' ? 
-          (<Heatmap selectHeatmap={this.selectHeatmap}/>) :
-          (<Hexbin selectHexbin={this.selectHexbin} />)
+          config.selected === 'hexbin'
+            ? (<Heatmap selectHeatmap={this.selectHeatmap} />)
+            : (<Hexbin selectHexbin={this.selectHexbin} />)
         }
       </div>
     );
@@ -101,32 +106,45 @@ class App extends Component {
 }
 
 App.propTypes = {
-  visitNoonlight: PropTypes.func,
-  exportMapConfig: PropTypes.func,
-  selectHexbin: PropTypes.func,
-  selectHeatmap: PropTypes.func,
-  keplerGl: PropTypes.object,
-  dataset: PropTypes.object,
-  config: PropTypes.object
+  dispatch: PropTypes.func.isRequired,
+  keplerGl: PropTypes.object.isRequired,
+  dataset: PropTypes.object.isRequired,
+  config: PropTypes.object.isRequired
+};
+
+App.defaultProps = {
+  keplerGl: {},
+  dataset: {},
+  config: {}
 };
 
 function Heatmap(props) {
+  const { selectHeatmap } = props;
   return (
-    <div onClick={props.selectHeatmap} className='config-container'>
-      <span className='label heat'>Heat Map</span>
-      <img src={heatmap} className='config-select' />
+    <div onClick={selectHeatmap} className="config-container">
+      <span className="label heat">Heat Map</span>
+      <img src={heatmap} alt="heatmap" className="config-select" />
     </div>
   );
 }
 
+Heatmap.propTypes = {
+  selectHeatmap: PropTypes.func.isRequired
+};
+
 function Hexbin(props) {
+  const { selectHexbin } = props;
   return (
-    <div onClick={props.selectHexbin} className='config-container'>
-      <span className='label hex'>Hex Bin</span>
-      <img src={hexbin} className='config-select' />
+    <div onClick={selectHexbin} className="config-container">
+      <span className="label hex">Hex Bin</span>
+      <img src={hexbin} alt="hexbin" className="config-select" />
     </div>
   );
 }
+
+Hexbin.propTypes = {
+  selectHexbin: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => ({
   keplerGl: state.keplerGl,
