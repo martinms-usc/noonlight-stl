@@ -1,20 +1,20 @@
 const path = require('path');
 
 module.exports = {
-  entry: "./src/client/index.js",
+  entry: './src/client/index.js',
   output: {
-    path: path.join(__dirname, "dist"),
-    filename: "bundle.js"
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js'
   },
   node: {
-    fs: "empty"
+    fs: 'empty'
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        include: path.join(__dirname, 'src', "client"),
+        include: path.join(__dirname, 'src', 'client'),
         use: {
           loader: 'babel-loader'
         }
