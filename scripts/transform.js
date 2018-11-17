@@ -38,6 +38,7 @@ function multiPolygonToPolygonGeometry(data) {
 async function transformGeofenceLayer() {
   let geoData;
   try {
+    // TODO: input the relative path to the geofence layer
     geoData = await readFileAsync(path.resolve(__dirname, '../src/data/geofence.json'), 'utf8');
     geoData = JSON.parse(geoData);
   } catch (error) {
@@ -69,9 +70,10 @@ async function updateCsvDataWithGeoFenceContains() {
     console.log('ERROR with geoFeatures');
   }
 
-  const glookup = new GeoJsonGeometriesLookup(geoJson);
+  // TODO: input the relative path to the original noonlight trips in line 74
   const input = fs.createReadStream(path.resolve(__dirname, '../src/data/safetrekEvents.csv'));
   const output = fs.createWriteStream(path.resolve(__dirname, '../src/data/updatedSafetrekEvents.csv'));
+  const glookup = new GeoJsonGeometriesLookup(geoJson);
 
   // stream trips and lookup each point in geofence layer
   input
@@ -97,10 +99,10 @@ async function updateCsvDataWithGeoFenceContains() {
 // if geofence layer is in 'MultiPolygon' geometry format, transform then run update
 co(function* main() {
   // transform geofence layer from Multi-Polygon to Polygon
-  // make sure correct filename is used in line 47 (should point to geofence layer)
+  // make sure correct filename is used in line 42 (should point to geofence layer)
   yield transformGeofenceLayer();
 
   // add geo filtering ability to trips data
-  // make sure correct filename is used in line 67 (should point to original Noonlight trips data)
+  // make sure correct filename is used in line 74 (should point to original Noonlight trips data)
   yield updateCsvDataWithGeoFenceContains();
 });
